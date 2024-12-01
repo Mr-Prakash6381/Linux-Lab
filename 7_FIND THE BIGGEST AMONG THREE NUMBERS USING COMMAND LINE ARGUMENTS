@@ -1,0 +1,57 @@
+AIM:
+
+To write a shell script to find the greatest among the given three numbers using command line arguments.
+
+
+ALGORITHM:
+
+1.	Start.
+2.	Read the value of the three number in the command line.
+3.	To find greatest integer among three number is calculated by 
+If A is greater than B and C then    
+4.	Print A is largest integer.
+5.	Else B is greater than A and C
+6.	Print  B is largest integer
+7.	Else 
+8.	Print C is largest integer
+9.	If the input is not valid it prints invalid input.
+10.	Stop.
+
+SOURCE CODE:
+
+read n1
+read n2 
+read n3
+if [ #@ -le 3 ]
+then
+echo "command line arguments are missing"
+elif [ $n1 -eq $n2 ]&& [ $n2 -eq $n3 ]
+then
+echo "All the three are equal"
+elif [ $n1 -gt $n2 ]
+then
+if [ $n1 -gt $n3 ]
+then
+echo "$n1 is biggest number"
+else
+echo "$n3 is biggest number"
+fi
+elif [ $n2 -gt $3 ]
+then
+echo "$n2 is biggest number"
+else
+echo "$n3 is biggest number"
+fi
+
+OUTPUT:
+
+msc@msc-Veriton-Series:$ ./greatest.sh
+So n1 n2 n3
+msc@msc-Veriton-Series:$ ./greatest.sh 4 6 3
+6 is largest integer
+msc@msc-Veriton-Series:$ ./greatest.sh  1 1 1
+Invalid input
+
+RESULT:
+
+Thus, the above shell script found the greatest among the given three numbers using command line arguments.
