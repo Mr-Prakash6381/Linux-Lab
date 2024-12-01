@@ -1,0 +1,134 @@
+AIM:
+
+To write a shell script performs the file operations.
+
+ALGORITHM:
+
+1 .Start	
+2. Display the menu and get the choice.
+3. If choice is 1, get the file name and create a file.
+4. If choice is 2, get the file name and show the file.
+5. If choice is 3, get source and destination file name and copy it.
+6. If choice is 4, get the source and new file name and rename it.
+7 .If choice is 5, get the file name and append the text.
+8. If choice is 6,  exit.
+
+ 
+SOURCE CODE:
+
+ans=’y’
+while [ $ans=y -o $ans=y ]
+do
+clear
+echo “ Menu”
+echo “1.Create a File”
+echo “2.Show File control”
+echo “3.Copy a File”
+echo “4.Rename a File”
+echo “5.Append a File”
+echo “6.Linking a file”
+echo “7.Exit”
+echo “Enter Your Choice”
+read choice
+case $choice in
+1 ) echo “ Enter the file name”
+read a
+cat > $a
+;;
+2 ) echo ” Enter the file name”
+read a
+cat $a
+read
+;;
+3 ) echo “ Enter source File Name”
+read a
+echo “ Enter source File Name”
+read b
+cp $a $b
+;;
+4 ) echo ” Enter the source File Name”
+read a
+echo “Enter the source file Name”
+read b
+mv “$a” “$b”
+echo “Rename Successful”
+;;
+5 ) echo “Enter the File Name”
+read a
+cat >> $a
+;;
+6 ) wish=” “
+echo “Do you want to continue (y/n)”
+read wish
+If [ $wish = ’y’ -o $wish = ’y’ ]
+then
+continue
+else
+echo “Thanks”
+exit
+fi
+;;
+esac
+done
+
+
+
+
+
+
+OUTPUT:
+
+msc@msc-Veriton-Series:~/kalaivani$ ./file.sh
+menu
+1.Create a file
+2. Show file content
+3.copy a file
+4. Rename a file
+5.Append a file
+6.Exit
+
+Enter your choice
+1
+Enter file name
+record 
+ncr
+wordcount
+mark
+file
+Enter your choice
+2
+Enter file name
+record
+ncr
+wordcount
+mark
+file
+Enter your choice
+3
+Enter the source file name
+record
+Enter the destination file name
+note
+Enter your choice
+4
+Enter the source file name
+note
+Enter the rename for the file
+notebook
+Enter your choice
+5
+Enter the file name
+notebook
+numbers
+utilities
+Enter your choice
+6
+do you want to continue(y/n)
+n
+thanks
+
+
+
+RESULT:
+
+Thus the above shell script for file operations was executed successfully.
