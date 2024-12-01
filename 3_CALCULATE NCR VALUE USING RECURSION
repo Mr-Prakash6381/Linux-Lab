@@ -1,0 +1,60 @@
+AIM:
+To write a shell script performs nCr calculation using recursion.
+
+ALGORITHM:
+
+1. Start.
+2. Read values of n and r.
+3. Define user defined function fact() to calculate factorial.
+4. Calculate n factorial.
+5. Calculate r factorial. 
+6. Calculate n-r factorial.
+ 4. Apply the following nCr formula:
+       res=nf\(rf*nrf)
+5. Print result.
+6. Stop.
+
+ 
+SOURCE CODE:
+
+fact()
+{
+i=1
+a=1
+while [ $i -le $x ]
+do
+a=`expr $a \* $i`
+i=`expr $i + 1`
+done
+}
+echo "enter the n value:"
+read n
+echo "enter the r value:"
+read r
+x=$n
+fact
+nf=$a
+x=$r
+fact
+rf=$a
+x=`expr $n - $r`
+fact
+nrf=$a
+res=`expr $rf \* $nrf`
+res=`expr $nf / $res`
+echo "the combination of $n c $r is $res"
+
+OUTPUT:
+
+msc@msc-Veriton-Series:~/kalaivani$ ./ncr.sh
+
+Enter the N value:
+5
+Enter the R value:
+4
+The combination of 5 c 4 is 5
+
+
+RESULT:
+
+Thus the shell script for nCr calculation using recursion was executed Successfully.
