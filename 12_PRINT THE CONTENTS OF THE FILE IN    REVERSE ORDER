@@ -1,0 +1,59 @@
+AIM:
+
+To write a C program to print the contents of the file in reverse order.
+
+ALGORITHM:
+
+1.Declare file descriptor, size as integer and buf as character.
+2. Open the specified file with zero as permission.
+3. Check whether the file is empty or not.
+4. If file is empty then print error.
+5. Else print success and size can be found by using Iseek - reposition of the  
+   offset of file descriptor to argument offset.
+6. Offset value is -1, that represents move to 1 byte from the end, with  
+     SEEK-END.
+7. Check whether size is greater than or equal to zero through while 
+    statement.
+8. If true, read the file and print the contents in file.
+9.Again call Iseek to reposition the file of file descriptor, offset value is -2,  
+     that represents move backward 2 bytes with SEEK-CUR.
+10. Size will be decremented by 1, to print contents in reverse order.
+
+SOURCE CODE:
+#include”head.h”
+int main(int argc,char** argv)
+{
+int fd,size;
+char buf;
+fd=open(argv[1],0);
+if(fd==-1)
+printf(“error\n”);
+else
+{
+printf(“success\n”);
+size=lseek(fd,-1,SEEK_END);
+while(size>=0)
+{
+read(fd,&buf,1);
+printf(“%c”,buf);
+lseek(fd,-2,SEEK_CUR);
+size=size-1;
+}
+}
+}
+
+INPUT: 
+
+./a.out file.txt
+
+Hello
+
+OUTPUT:
+
+Success
+
+olleH
+
+RESULT:
+
+Thus, the above C script was printed on the contents of the file in reverse order.
