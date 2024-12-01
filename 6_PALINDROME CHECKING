@@ -1,0 +1,58 @@
+AIM:
+
+To write a Shell script to check whether the given string is palindrome or not.
+
+ALGORITHM:
+
+1. Start.
+2. Read the string.
+3. calculating the length of the string using wc command  
+4. Store the string character by character in the temporary variable. 
+5. Store the string in the variable revstr in reverse order. 
+6. Check the given string and revstr are same. If they are same the string is a  
+     palindrome  Else the string is not a palindrome.
+7. Stop.
+
+SOURCE CODE:
+
+clear 
+echo "Enter a string to be entered:"
+read str
+echo
+len=`echo $str | wc -c`
+len=`expr $len - 1`
+i=1
+j=`expr $len / 2`
+while [ $i -le $j ]
+do
+k=`echo $str | cut -c $i`
+l=`echo $str | cut -c $len`
+if [ $k != $l ] ;
+then
+echo "$str is not palindrome"
+exit
+fi
+i=`expr $i + 1`
+len=`expr $len - 1`
+done
+echo "$str is palindrome"
+
+
+OUTPUT:
+
+msc@msc-Veriton-Series: $ ./palindrome.sh
+
+Enter the string
+malayalam
+malayalam is palindrome
+
+msc@msc-Veriton-Series: $ ./palindrome.sh
+
+Enter the string
+hello
+hello is not palindrome
+
+
+RESULT:
+
+Thus, the above shell script was checked whether the given string is palindrome or not.
