@@ -1,0 +1,74 @@
+AIM:
+
+To write a C program to convert starting lowercase letter of each word into uppercase in given file.
+
+ALGORITHM:
+
+1.	Declare file descriptor, file descriptor 1, n as int.
+2.	Initialize n as 99.
+3.	Declare buf as char.
+4.	In both file descriptor, open the file with different permission (Read and  Write).
+5.	If file is empty, print error.
+6.	Else print success and initialize n as 10.
+a.	Read the file contents.	
+7.	 Check each word starting character in a file, if it is in a lowercase letter or not.
+8.	If it is in a lowercase letter then decrement the value by 32, changed to uppercase letter.
+9.	Write the letter in a file as an uppercase letter.
+10.	If it is in an uppercase, then write the letter in a file
+11.	Check whether read contents is a space or new line, and then write as it is.
+12.	Repeat from step 7 to 11 till while loop is true.
+
+SOURCE CODE:
+
+#include”head.h”
+int main(int argc,char* argv[])
+{
+int fd,fd1,n=99;
+char buf;
+fd=open(argv[1],0);
+fd1=open(argv[1],1);
+if((fd==-1)|| (fd1==-1))
+printf(“error\n”);
+else
+{
+printf(“success\n”);
+n=10;
+read(fd,&buf,1);
+if((buf>=’a’)&&(buf<=’z’))
+{
+buf=buf-32;
+write(fd1,&buf,1);
+}
+else
+write(fd1,&buf,1);
+while(n>0)
+{
+n=read(fd,&buf,1);
+if((buf==’’)&&(buf==’\n’))
+{
+write(fd1,&buf,1);
+read(fd,&buf,1);
+if((buf>=’a’)&&(buf<=’z’))
+{
+buf=buf-32;
+write(fd1,&buf,1);
+}
+else
+write(fd1,&buf,1);
+} else
+write(fd1,&buf,1);}}}
+
+INPUT: 
+./a.out file.txt
+
+hello world
+
+OUTPUT:
+
+Success
+
+Hello World
+
+RESULT:
+
+Thus, the C program converted the lowercase letter of each word into uppercase in given file.
