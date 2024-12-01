@@ -1,0 +1,140 @@
+AIM:
+
+To Write a Shell Script performs the basic Linux utilities.
+
+
+ALGORITHM:
+
+1. Start.
+2. Display the menu and get the choice.
+3. If choice is 1, get the file name and perform head command.
+4. If choice is 2, get the file name and perform tail command.
+5. If choice is 3, get the source and perform cut command.
+6. If choice is 4, get the source and destination file name and copy it.
+7. If choice is 5,  exit from terminal.
+
+SOURCE CODE:
+
+//Basic.sh
+echo "menu"
+echo "1.head"
+echo "2.tail"
+echo "3.cut"
+echo "4.paste"
+echo "5.join"
+echo "6.exit"
+echo "enter your choice"
+read ch
+case $ch in
+1) echo "enter the file name"
+read a
+head -n 5 $a;;
+2) echo "enter the file name"
+read a
+tail -n 5 $a;;
+3) echo "enter the file name"
+read a
+cut -c 1-3 $a;;
+4) echo "enter first file"
+read a
+echo "enter second file"
+read b
+paste $a $b;;
+5) echo "enter first file"
+read a
+echo "enter second file"
+read b 
+join $a $b;;
+6) echo "thank you"
+exit
+esac
+
+
+
+state.txt
+Andhra Pradesh
+Arunachal Pradesh
+Kerala
+Karnataka
+Tamilnadu
+Telungana
+Assam
+Bihar
+Goa
+Gujarat
+
+
+fruits.txt
+
+apple
+orange
+banana
+grapes
+pineapple
+mango
+
+OUTPUT:
+
+msc@msc-Veriton-Series:~$ ./utilities.sh
+menu
+1.head
+2.tail
+3.cut
+4.paste
+5.join
+6.exit
+enter your choice
+1
+state.txt
+Andhra Pradesh
+Arunachal Pradesh
+Kerala
+Karnataka
+Tamilnadu
+
+enter your choice
+2
+enter the file name
+state.txt
+Assam
+Bihar
+Goa
+Gujarat
+
+enter your choice
+3   
+enter the file name
+state.txt
+And
+Aru
+Ker
+Kar
+Tam
+Tel
+Ass
+Bih
+Goa
+Guj
+
+enter your choice
+4
+enter first file
+state.txt
+enter second file
+fruits.txt
+Andhra Pradesh	apple
+Arunachal Pradesh	orange
+Kerala	banana
+Karnataka	grapes
+Tamilnadu	goa
+Telungana	
+Assam	
+Bihar	
+Goa	
+Gujarat	
+	
+
+
+RESULT:
+
+Thus the above shell script for basic LINUX utilities was executed successfully.
